@@ -14,6 +14,16 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.16.0
+          node-version: 16
       - uses: actions/checkout@v2
       - uses: education/autograding@v1
+    steps:
+  - name: Set the value
+    id: step_one
+    run: |
+      echo "action_state=yellow" >> "$GITHUB_ENV"
+  - name: Use the value
+    id: step_two
+    run: |
+
+      echo "${{ env.action_state }}" # This will output 'yellow'
